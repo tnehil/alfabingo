@@ -12,7 +12,6 @@ def make_card(squares):
     this_squares = squares
 
     while len(card) < 24:
-        print(this_squares)
         square = random.choice(this_squares)
         card.append(square)
         this_squares = this_squares.replace(square,"")
