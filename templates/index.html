@@ -1,0 +1,38 @@
+<style>
+.bingo-card {
+    width: 680px;
+    margin: 125px auto 150px;
+    clear:both;
+    overflow: auto;
+}
+
+.bingo-square {
+    width: 100px;
+    height: 100px;
+    padding: 15px;
+    text-align: center;
+    font-family: helvetica;
+    border: 1px solid #333;
+    font-size: 6em;
+    float:left;
+}
+
+.free-space {
+    padding-top: 0;
+    height: 115px;
+}
+
+
+</style>
+
+
+
+
+{% for card in cards %}
+<div class="bingo-card">
+    {% for square in card %}
+    <div class="bingo-square {% if square=="★" %}free-space{%endif%}">{{square}}</div>
+    {% endfor %}
+</div>
+<br/>
+{% endfor %}
