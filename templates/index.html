@@ -7,7 +7,6 @@
 }
 
 .bingo-card .header {
-  /*width: 95%;*/
   margin: 0 auto 20px;
 }
 
@@ -29,13 +28,22 @@
     text-align: center;
     font-family: helvetica;
     border: 1px solid #333;
-    font-size: 6em;
+    font-size: 1.2em;
     float:left;
+    position: relative;
+}
+
+.bingo-text {
+  margin:auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  height: 30%;
 }
 
 .free-space {
     padding-top: 0;
     height: 105px;
+    font-size:4em;
 }
 
 
@@ -50,7 +58,9 @@
       <img src="{{url_for('static', filename='images/LingoCardTop.png')}}" alt="header" />
     </div>
     {% for square in card %}
-    <div class="bingo-square {% if square=="★" %}free-space{%endif%}">{{square}}</div>
+    <div class="bingo-square {% if square=="★" %}free-space{%endif%}">
+      <div class="bingo-text">{{square}}</div>
+    </div>
     {% endfor %}
     <div class="footer">
       <img src="{{url_for('static', filename='images/LingoCardBottom.png')}}" width=80% alt="footer" />
