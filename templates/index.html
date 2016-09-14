@@ -1,14 +1,30 @@
 <style>
 .bingo-card {
-    width: 680px;
-    margin: 125px auto 150px;
+    width: 610px;
+    margin: 25px auto;
     clear:both;
     overflow: auto;
 }
 
+.bingo-card .header {
+  /*width: 95%;*/
+  margin: 0 auto 20px;
+}
+
+.bingo-card .footer {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 10px;
+  overflow: auto;
+}
+
+.bingo-card img {
+  width:100%;
+}
+
 .bingo-square {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     padding: 15px;
     text-align: center;
     font-family: helvetica;
@@ -19,20 +35,28 @@
 
 .free-space {
     padding-top: 0;
-    height: 115px;
+    height: 105px;
 }
 
 
 </style>
 
 
-
+<body>
 
 {% for card in cards %}
 <div class="bingo-card">
+    <div class="header">
+      <img src="{{url_for('static', filename='images/LingoCardTop.png')}}" alt="header" />
+    </div>
     {% for square in card %}
     <div class="bingo-square {% if square=="★" %}free-space{%endif%}">{{square}}</div>
     {% endfor %}
+    <div class="footer">
+      <img src="{{url_for('static', filename='images/LingoCardBottom.png')}}" width=80% alt="footer" />
+    </div>
 </div>
 <br/>
 {% endfor %}
+
+</body>
