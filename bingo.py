@@ -29,19 +29,19 @@ def unique_card(card, existing_cards):
 def home():
     return "You have to go to specify the number of cards you want via URL, e.g. /5 for 5 cards"
 
-@app.route("/<int:no_cards>")
+@app.route("/alfa/<int:no_cards>")
 def bingo(no_cards):
     bingo_cards = []
     while len(bingo_cards) < no_cards:
         bingo_cards.append(unique_card(make_card(alfa_squares), bingo_cards))
-    return render_template("index.html", cards=bingo_cards)
+    return render_template("alfa.html", cards=bingo_cards)
 
 @app.route("/prez/<int:no_cards>")
 def prez_bingo(no_cards):
     bingo_cards = []
     while len(bingo_cards) < no_cards:
         bingo_cards.append(unique_card(make_card(prez_squares), bingo_cards))
-    return render_template("index.html", cards=bingo_cards)
+    return render_template("prez.html", cards=bingo_cards)
 
 
 if __name__ == '__main__':
